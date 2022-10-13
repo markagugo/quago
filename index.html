@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>QUAGO</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Quago">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Mark Agugo">
+  <meta name="generator" content="Quago">
+  
+</head>
+
+<div class="container">
+    <div class="image">
+      <img src="ic_launcher-playstore.png" width="50px" height="50px">
+    </div>
+    <div class="text">
+      <h1>QUAGO</h1>
+    </div>
+  </div>
+
+  <style>
+    .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black; 
+  padding: 3px; 
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+img {
+  max-width: 100%
+}
+
+.image {
+  flex-basis: 40%
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+  </style>
+
+
+<div style="padding: 20px; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">
+
+    <div>
+        <p>
+            So i was thinking of what i can build with my <b>Android</b> and <b>Data Science</b> skills 
+            combined in one project and fortunately i came up with the movie downloading app (Quago) idea :).
+            And after like 1 month and a week i'm happy i was able to make the project a reality and here 
+            i'm gonna explain how this project was built.
+        </p>
+    </div>
+
+    <div>
+        <p>
+            In order to proceed with the project, i needed to have some movies data already to build the app
+            so in order to achieve that i had to use web scraping. i scraped NetNaija site to get some movies
+            title, poster, download link, and subtitle link, trailer link the scraped IMDB site to get the other movie details
+            like genre, stars, runtime, description and directors. When that was done i took roughly 2 weeks 
+            to organize my data such as filling missing values and other little stuffs using python.
+            And finally when i was done with data cleaning, i then moved onto building the app.
+        </p>
+
+        <img src="q1.PNG" alt="A preview of my dataset when i was done cleaning" style="width:100%;">
+        <div style="text-align: right; margin: 2px; font-weight: bold;">A preview of my dataset when i was done cleaning</div>
+    </div>
+
+    <div style="padding: 20px; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;" >
+        <p>
+            Building the app i used a free hosting company(000webhost) to host my movies dataset and used simple
+            php scripts to help me read the movies in different categories from the database and when that was done i used volley 
+            library in to retrive the movies in android with java.
+            After that i needed a way to display recomendation for each movies. I tried writting a java program to calculate 
+            the similarities of the movies on retriveing them from the database but that was stopping the app because the movies
+            data was much(2,364).
+            So thinking of another way to do it, i finally decided to use python which already has a prebuilt function for calculating 
+            the similarity which was more faster and then wrote a simple script to calculate the similarity of the movies based on
+            the main actors, director, genre and then saved it in a json format and uploaded it to firebase RTDB. 
+        </p>
+        <img src="gdfed.PNG" alt="A preview of my dataset when i was done cleaning" style="width:100%;">
+        <div style="text-align: right; margin: 2px; font-weight: bold;">Structure of my json file identifying each movie recomendations
+        with a unique name <br/>  each movie with 10 different movies under as its recomendation</div>
+    </div>
+
+    <div style="padding: 20px; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">
+        <p>
+            And when that was done i then used firebase firestore(NoSql) to store users data and movies collection for each user.
+        </p>
+        <img src="dud.jpg" alt="firestore collections" style="width:100%;">
+        <div style="text-align: right; margin: 2px; font-weight: bold;">firestore collections</div>
+    </div>
+
+    <div style="padding: 20px; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">
+        <p>
+            That was it building the app i was about building an admin backend where i can upload new movies and recomendation 
+            but due to some reasons i stopped.
+            You can download the app below if you wanna try it out and download any of the limited movies:). 
+          <b>please note --> this app was just built for fun</b>
+        </p>
+      
+          <button type="submit" onclick="window.open('Quago.apk')"
+        style="height: 30px; width:100%; background-color: rgb(50, 15, 177); color: white; border: 2px; border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace; font-weight: bolder; font-size: large;">
+            Download App
+        </button>
+   
+      
+    </div>
+
+    <div style="padding: 20px; text-align: center; align-items: center; font-family: Georgia, 'Times New Roman', Times, serif;">
+        <p>Some screenshots of the app</p>
+        <img src="p1.png" width="200px" style="align-content:center; text-align: center;">
+        <img src="p2.png" width="200px" style="align-content:center; text-align: center;">
+        <img src="p3.png" width="200px" style="align-content:center; text-align: center;">
+        <img src="p4.png" width="200px" style="align-content:center; text-align: center;">
+        <img src="p5.png" width="200px" style="align-content:center; text-align: center;">
+        <img src="p6.png" width="200px" style="align-content:center; text-align: center;">
+    </div>
+</div>
+
+
+
+<div>
+    <footer>
+        <p style="text-align:center; color: black; font-size: 10px;"><b>UNTIL THE END&#57676;</b></p>
+    </footer>
+</div>
+
+</body>
+
+</html>
